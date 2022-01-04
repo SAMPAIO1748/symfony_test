@@ -124,4 +124,14 @@ class MainController extends AbstractController
     // refaire la fonction poker mais remplacer new Response par render
     // pour afficher une vue avec du texte dans un h1
     // et avec une image.
+
+    /**
+     * @Route("/articles", name="article_list")
+     */
+    public function articleList()
+    {
+        $articles = $this->tableau_articles;
+
+        return $this->render("articles.html.twig", ['articles' => $articles]);
+    }
 }
