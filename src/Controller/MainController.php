@@ -66,8 +66,7 @@ class MainController extends AbstractController
      */
     public function home()
     {
-        var_dump('Bonjour');
-        die;
+        dd('Bonjour');
     }
 
     /**
