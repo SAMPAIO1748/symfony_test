@@ -8,6 +8,7 @@
 
 		<h1>{{article.titre}}</h1>
 		<p>{{ article.contenu }}</p>
+		<a href="{{ path("article", {'id' : article.id}) }}">Voir l'article</a>
 		<hr>
 
 	{% endfor %}
