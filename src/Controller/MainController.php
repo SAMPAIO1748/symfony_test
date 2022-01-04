@@ -98,4 +98,16 @@ class MainController extends AbstractController
     // créer une route poker avec une wildcard qui correspond à l'âge
     // si l'âge est inférieur à 18 la réponse est "accés interdit"
     // si l'âge est supérieur ou égale à 18 la réponse est "accés autorisé"
+
+    /**
+     * @Route("/poker/{age}", name="poker")
+     */
+    public function poker($age)
+    {
+        if ($age < 18) {
+            return new Response("Accés interdit");
+        } else {
+            return new Response("Accés autorisé");
+        }
+    }
 }
