@@ -28,6 +28,29 @@ class MainController extends AbstractController
 
     ];
 
+    private $tableau_categorie = [
+        1 => [
+            "nom" => "Politique",
+            "description" => "Tous savoir sur la politique",
+            "id" => 1
+        ],
+        2 => [
+            "nom" => "Economie",
+            "description" => "Tous savoir sur l'économie",
+            "id" => 2
+        ],
+        3 => [
+            "nom" => "Technologie",
+            "description" => "Tous savoir sur la technologie",
+            "id" => 3
+        ],
+        4 => [
+            "nom" => "Obi-wan Kenobi",
+            "description" => "Tous savoir sur Obi-wan Kenobi",
+            "id" => 4
+        ]
+    ];
+
     /**
      * @Route("/main", name="main")
      */
@@ -92,7 +115,9 @@ class MainController extends AbstractController
      */
     public function articleShow($id)
     {
-        return new Response($this->tableau_articles[$id]['titre'] . "<br>" . $this->tableau_articles[$id]['contenu']);
+        $article = $this->tableau_articles[$id];
+
+        return $this->render('article.html.twig', ['article' => $article]);
     }
 
     // créer une route poker avec une wildcard qui correspond à l'âge
@@ -133,5 +158,18 @@ class MainController extends AbstractController
         $articles = $this->tableau_articles;
 
         return $this->render("articles.html.twig", ['articles' => $articles]);
+    }
+
+    // créer une route qui affiche dans un fichier twig toutes 
+    // les catégories (nom et description)
+
+    /**
+     * @Route("/categories", name="categories_list")
+     */
+    public function categoriesList()
+    {
+        $categories = $this->tableau_categorie;
+
+        return $this->render("categories.html.twig", ['categories' => $categories]);
     }
 }
