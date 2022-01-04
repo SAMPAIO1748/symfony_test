@@ -172,4 +172,18 @@ class MainController extends AbstractController
 
         return $this->render("categories.html.twig", ['categories' => $categories]);
     }
+
+    // créer une route qui affiche une catégorie grâce à une wildcard
+    // on affiche le nom et la description de la catégorie.
+
+    /**
+     * @Route("/category/{id}", name="category_show")
+     */
+    public function categoryShow($id)
+    {
+
+        $category = $this->tableau_categorie[$id];
+
+        return $this->render("category.html.twig", ['category' => $category]);
+    }
 }
