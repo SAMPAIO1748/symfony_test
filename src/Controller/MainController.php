@@ -105,9 +105,9 @@ class MainController extends AbstractController
     public function poker($age)
     {
         if ($age < 18) {
-            return new Response("Accés interdit");
+            return $this->render("kid.html.twig");
         } else {
-            return new Response("Accés autorisé");
+            return $this->render("adulte.html.twig");
         }
     }
 
@@ -116,6 +116,12 @@ class MainController extends AbstractController
      */
     public function vue()
     {
+        // render permet de retourner vers un fichier twig
+        // et ainsi afficher une vue.
         return $this->render("vue.html.twig");
     }
+
+    // refaire la fonction poker mais remplacer new Response par render
+    // pour afficher une vue avec du texte dans un h1
+    // et avec une image.
 }
