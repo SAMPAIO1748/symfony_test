@@ -110,4 +110,12 @@ class MainController extends AbstractController
             return new Response("Accés autorisé");
         }
     }
+
+    /**
+     * @Route("/vue", name="vue")
+     */
+    public function vue()
+    {
+        return $this->render("vue.html.twig");
+    }
 }
