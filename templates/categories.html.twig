@@ -5,6 +5,7 @@
 	{% for category in categories %}
 		<h1>{{ category.nom }}</h1>
 		<p>{{ category.description }}</p>
+		<a href="{{ path('category_show', {'id': category.id}) }}">Voir plus</a>
 		<hr>
 	{% endfor %}
 
